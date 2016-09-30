@@ -14,12 +14,10 @@ def form():
 
 @app.route("/authen/", methods=['POST'])
 def auth():
-    response=""
     if request.form["user"]=="hello" and request.form["password"]=="cool":
-        response="success"
+        return render_template('authenticate.html', message="success")
     else:
-        response="failure"
-    return render_template('formMessage.html', message=reponse)
+        return render_template('authenticate.html', message="failure")
                                
 
 if __name__=="__main__":
